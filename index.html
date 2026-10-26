@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Quick Question...</title>
+  <style>
+    /* Center everything on the screen */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffe6e9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #e6005c;
+      margin-bottom: 30px;
+    }
+
+    /* Container for the buttons */
+    .btn-container {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Basic style for buttons */
+    button {
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    /* Yes Button */
+    #yes-btn {
+      background-color: #ff4d6d;
+      color: white;
+      font-size: 1.2rem;
+      padding: 12px 28px;
+      box-shadow: 0 4px 10px rgba(255, 77, 109, 0.3);
+    }
+
+    #yes-btn:hover {
+      background-color: #ff1a40;
+    }
+
+    /* No Button */
+    #no-btn {
+      background-color: #888;
+      color: white;
+      font-size: 1.2rem;
+      padding: 12px 28px;
+    }
+
+    #no-btn:hover {
+      background-color: #666;
+    }
+
+    /* Success message style */
+    #success-message {
+      display: none;
+      font-size: 2rem;
+      color: #ff1a40;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Main Container -->
+  <div id="content">
+    <h1>Do you love me? ❤️</h1>
+    
+    <div class="btn-container">
+      <button id="yes-btn" onclick="sayYes()">Yes</button>
+      <button id="no-btn" onclick="growYes()">No</button>
+    </div>
+  </div>
+
+  <!-- Message displayed after clicking Yes -->
+  <div id="success-message">
+     Yay! I knew it! 🥰💖
+  </div>
+
+  <script>
+    // Initial size variables
+    let fontSize = 1.2; // in rem
+    let paddingVertical = 12; // in px
+    let paddingHorizontal = 28; // in px
+
+    function growYes() {
+      const yesBtn = document.getElementById('yes-btn');
+
+      // Increase the dimensions every time "No" is clicked
+      fontSize += 0.5;
+      paddingVertical += 8;
+      paddingHorizontal += 16;
+
+      // Apply new styles
+      yesBtn.style.fontSize = fontSize + 'rem';
+      yesBtn.style.padding = paddingVertical + 'px ' + paddingHorizontal + 'px';
+    }
+
+    function sayYes() {
+      // Hide the question & buttons, show success message
+      document.getElementById('content').style.display = 'none';
+      document.getElementById('success-message').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
